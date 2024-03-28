@@ -34,7 +34,6 @@ var fullJustify = function (words, maxWidth) {
         added += 1;
         j += 1;
       }
-      console.log(currLine);
       // add currLine to result
       result.push(currLine.join(''));
       // Reset width = 0, currLine = []
