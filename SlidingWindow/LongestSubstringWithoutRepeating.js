@@ -1,3 +1,30 @@
+// Alternative and Shorter solution
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function (s) {
+  // Initialize a set to keep track of characters in the current window
+  const set = new Set();
+  let maxLength = 0;
+  let left = 0;
+
+  // Iterate through the string with the right pointer
+  for (let right = 0; right < s.length; right++) {
+    // If the current character is already in the set, move the left pointer until the character is removed from the set
+    while (set.has(s[right])) {
+      set.delete(s[left]);
+      left++;
+    }
+    // Add the current character to the set
+    set.add(s[right]);
+    // Update the maximum length of the substring
+    maxLength = Math.max(maxLength, right - left + 1);
+  }
+
+  return maxLength;
+};
+
 function findLongestSubstring(str) {
   if (str.length === 0) return 0;
 
